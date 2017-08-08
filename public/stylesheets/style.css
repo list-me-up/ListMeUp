@@ -1,8 +1,59 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  font-family: 'Shadows Into Light';
+  color: #8b8378;
+  /* background-color: #E6DEDC; */
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
 
-a {
-  color: #00B7FF;
+ul, li {
+  font-size: 18px;
+  color: #8b8378;
+}
+
+h4 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.jumbotron {
+  background-color: #E6DEDC;
+}
+
+.panel-default>.panel-heading {
+  background-color: #E6DEDC;
+  color: #8b8378;
+}
+
+.navbar-default .navbar-brand, .btn  {
+  color: #8b8378;
+}
+
+.navbar {
+  background-color: #eee9e9;
+  padding: 3px;
+}
+
+.container {
+  padding: 50px;
+}
+
+.table-fixed thead {
+  width: 98%;
+}
+
+.table-fixed tbody {
+  padding-top: 20px;
+  height: 350px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
 }

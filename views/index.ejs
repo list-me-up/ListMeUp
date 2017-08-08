@@ -1,11 +1,138 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>List Me Up</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/36bb339d58.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">List Me Up</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Account</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Notifications</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Locations</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" id="wrap">
+    <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4> Your List: </h4>
+          </div>
+          <table class="table table-fixed">
+            <thead>
+              <tr>
+                <th class="col-xs-2">#</th><th class="col-xs-8">Task</th><th class="col-xs-2">Active</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-xs-2">1</td><td class="col-xs-8">Check Weather</td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <label><input type="checkbox" value=""></label>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-xs-2">2</td><td class="col-xs-8">Bring Keys</td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <label><input type="checkbox" value=""></label>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-xs-2">3</td><td class="col-xs-8">Go to Market</td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <label><input type="checkbox" value=""></label>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-xs-2">4</td><td class="col-xs-8">Call Mom</td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <label><input type="checkbox" value=""></label>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-xs-2">5</td><td class="col-xs-8">Drive Bob to Airport</td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <label><input type="checkbox" value=""></label>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-xs-2">6</td><td class="col-xs-8">Call Sheila</td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <label><input type="checkbox" value=""></label>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-xs-2">7</td><td class="col-xs-8">Sell clothes</td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <label><input type="checkbox" value=""></label>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-xs-2">8</td><td class="col-xs-8">Work on Project 3</td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <label><input type="checkbox" value=""></label>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="col-xs-2">9</td><td class="col-xs-8">Watch GOT</td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <label><input type="checkbox" value=""></label>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+
+  <div class="navbar navbar-fixed-bottom">
+    <p class="navbar-text pull-left">© 2017 - Site Built By: Alexandra Kauffman, Andrew Dell, & Bill Hsiao
+    </p>
+    <a href="https://github.com/list-me-up/ListMeUp" class="navbar-btn btn pull-right" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  </div>
   </body>
 </html>
