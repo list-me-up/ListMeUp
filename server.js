@@ -5,7 +5,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 require('./config/database');
+
+// require environment variables
+require('dotenv').config();
+
+// Twilio setup
+const token = process.env.TWILIO_TOKEN;
+var accountSid = process.env.TWILIO_ACCOUNT;
+
+// import Twilio object
+const twilio = require('twilio')(accountSid, token); 
 
 var index = require('./routes/index');
 var users = require('./routes/users');
