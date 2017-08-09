@@ -17,6 +17,10 @@
 * GitHub
 * Bash
 * Heroku
+* Twilio API
+* Open Weather Map API
+* Underscore
+* AJAX
 
 ### Pitch-Deck
 * Check out our Pitch-deck [here](https://docs.google.com/presentation/d/1QNbQ3lkRhbV013fgFNjFkZNF4X4DaFGUxOZNWOJzQck/edit#slide=id.ge9090756a_1_58).
