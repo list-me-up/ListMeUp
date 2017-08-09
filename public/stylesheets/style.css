@@ -55,3 +55,15 @@ h4 {
   float: left;
   border-bottom-width: 0;
 }
+
+#map {
+  margin: 0 auto;
+  background-color: #ffffff;
+  width: 50%;
+  height: 400px;    
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 7px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
