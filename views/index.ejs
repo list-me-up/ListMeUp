@@ -1,6 +1,6 @@
 <%- include('./_partials/header') %>
 
-  <div class="container" id="wrap">
+  <!-- <div class="container" id="wrap">
     <div class="row">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -75,11 +75,109 @@
                       <label><input type="checkbox" value=""></label>
                     </div>
                 </td>
+
+              </tr>
+              <tr>
+
+
+
+                <td class="col-xs-2">10</td><td class="col-xs-8">
+                  <textarea id="new-item"></textarea>
+                  <ul id="items"></ul>
+                
+                </td><td class="col-xs-2">
+                  <div class="checkbox">
+                      <input type="button" id="btn-send-item" value="Add">
+                    </div>
+                </td>
+               
+              
+
               </tr>
             </tbody>
           </table>
         </div>
     </div>
+  </div> -->
+
+  <!-- <div class="container" id="wrap">
+    <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4> Your List: </h4>
+          </div>
+          <table class="table table-fixed">
+            <thead>
+              <tr>
+                <th class="col-xs-2">#</th><th class="col-xs-8">Task</th><th class="col-xs-2">Active</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <div id="table">
+                <tr>
+                  <td class="col-xs-2">1</td><td class="col-xs-8">Check Weather</td>
+                  <td class="col-xs-2">
+                    <div class="checkbox">
+                        <label><input type="checkbox" value=""></label>
+                      </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="col-xs-2">3</td><td class="col-xs-8"><div id="items"></div> </td>
+                  <td class="col-xs-2">
+                    <div class="checkbox">
+                        <label><input type="checkbox" value=""></label>
+                      </div>
+                  </td>
+                </tr>
+              </div>
+        
+              <tr>
+                <td class="col-xs-2">3</td>
+                <td class="col-xs-8">
+                  <textarea id="new-item"></textarea>
+      
+                </td><td class="col-xs-2">
+                  <div class="checkbox">
+                    <input type="button" id="btn-send-item" value="Add">
+                  </div>
+                </td>
+
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div> -->
+
+  <div class="container" id="wrap">
+     <div class="row"> 
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4>Your List:</h4>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th class="col-xs-2">#</th>
+              <th class="col-xs-8">Task</th>
+              <th class="col-xs-2">Active</th>
+            </tr>
+          </thead>
+        </table>
+      
+        <ul id="items"></ul>
+        <textarea id="new-item"></textarea>
+        <input type="button" id="btn-send-item" value="Add">
+      </div>
+    </div>
   </div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="./javascripts/app.js"></script> 
 
 <%- include('./_partials/footer') %>
