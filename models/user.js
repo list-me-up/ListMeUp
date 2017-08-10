@@ -9,19 +9,21 @@ var listSchema = new Schema({
 
 var userSchema = new Schema({
     name: {
-        type: String,
-        required: true
+        type: String
     },
     email: {
         type: String
     },
+    googleId: String,
     location: {
         type: String,
         default: 'Los Angeles'
     },
     number: {
-        type: String,
-        required: true
+        type: String
+    },
+    time: {
+        type: Number
     },
     list: [listSchema]
 }, {
