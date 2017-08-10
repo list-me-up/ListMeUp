@@ -1,10 +1,19 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var listSchema = new Schema({
+    text: String,
+}, {
+    timestamps: true
+});
+
 var userSchema = new Schema({
     name: {
         type: String,
         required: true
+    },
+    email: {
+        type: String
     },
     location: {
         type: String,
@@ -14,7 +23,7 @@ var userSchema = new Schema({
         type: String,
         required: true
     },
-    list: [String]
+    list: [listSchema]
 }, {
     timestamps: true
 });
