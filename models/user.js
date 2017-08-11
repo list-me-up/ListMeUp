@@ -15,6 +15,7 @@ var userSchema = new Schema({
     lon: Number,
     phoneNumber: String,
     time: Number,
+    photo: String,
     list: [listSchema],
 }, {
     timestamps: true
