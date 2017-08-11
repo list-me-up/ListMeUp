@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
+require('dotenv').config();
+const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
-mongoose.connect('mongodb://localhost/ListMeUp');
+mongoose.connect(process.env.DATABASE_URL);
 
-// shortcut to mongoose.connection object
 var db = mongoose.connection;
 db.once('open', function() {
     console.log(`Mongoose connected to: ${process.env.DATABASE_URL}`);
