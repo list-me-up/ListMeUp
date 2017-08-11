@@ -8,5 +8,6 @@ var listCtrl = require('../controllers/lists');
 
 router.get('/users', userCtrl.index);
 
+// router.post('/list', isLoggedIn, userCtrl.create)
 
 module.exports = router;
