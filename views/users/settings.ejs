@@ -1,12 +1,13 @@
 <%- include('./../_partials/header') %>
 
-<form>
-    <label>Phone Number:</label><input type="text" name="number" value="(222) 222-2222">
-    <label>City:</label><input id="addressSearch">
-    <label>Notification time: </label><input>
-    <button>Submit</button>
-</form>
-
+    <h1>Welcome User...</h1>
+    <form method="POST" action="/users/profile?_method=PUT" method="post">
+        <label>Phone Number:</label><input type="text" name="phoneNumber" value="(222) 222-2222">
+        <label>City:</label><input id="addressSearch" name="city">
+        <label>Notification time: </label><input name="time">
+        <input type="submit" value="Submit">
+    </form>
+    
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9IDQC2FqaO9bsE9NEr3Qon_buW8aVHKo&libraries=places" type="text/javascript"></script>
 <script>
 

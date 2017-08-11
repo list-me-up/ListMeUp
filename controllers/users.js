@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var geocoder = require('geocoder');
 
 function index(req, res) {
     var u = req.user;
@@ -16,6 +17,18 @@ function home(req, res) {
 
 }
 
+function update(req, res) {
+    req.user.phoneNumber = req.body.phoneNumber
+    req.user.time = req.body.time
+  
+    geocoder.geocode(req.body.city, function (err, data) {
+        req.user.lat = data.results[0].geometry.location.lat
+        req.user.lon = data.results[0].geometry.location.lng
+        req.user.save(function(err) {
+            res.redirect('/');
+        });
+    });
+}
 function settings(req, res) {
     res.render('users/home', {user: req.user});
 }
@@ -33,5 +46,6 @@ module.exports = {
     index,
     settings,
     newMap,
-    home
+    home,
+    update,
 }
