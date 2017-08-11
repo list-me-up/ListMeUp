@@ -1,14 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var userCtrl = require('./../controllers/users');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/profile', userCtrl.index);
+router.get('/home', userCtrl.home)
+router.get('/settings', userCtrl.settings);
+router.get('/new', userCtrl.newMap);
 
-/* GET users listing. */
-router.get('/new', function (req, res, next) {
-  res.render('map');
-});
+// user settings
+
+// map location
+
+// notification settings
 
 module.exports = router;
