@@ -33,11 +33,6 @@ function settings(req, res) {
 }
 
 
-// check profile
-
-
-// change time, location, 
-
 module.exports = {
     index,
     settings,
