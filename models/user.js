@@ -8,24 +8,13 @@ var listSchema = new Schema({
 });
 
 var userSchema = new Schema({
-    name: {
-        type: String
-    },
-    email: {
-        type: String
-    },
+    name: String,
+    email: String,
     googleId: String,
-    location: {
-        type: String,
-        default: 'Los Angeles'
-    },
-    number: {
-        type: String
-    },
-    time: {
-        type: Number
-    },
-    list: [listSchema]
+    lat: Number,
+    lon: Number,
+    phoneNumber: String,
+    list: [listSchema],
 }, {
     timestamps: true
 });
