@@ -15,6 +15,10 @@ router.get('/', function(req, res, next) {
 });
 
 
+router.get('/login', function(req, res) {
+  res.render('users/login');
+})
+
 
 /* GET users listing. */
 router.get('/new', function (req, res, next) {
