@@ -17,7 +17,7 @@ function home(req, res) {
 }
 
 function settings(req, res) {
-    res.render('users/settings');
+    res.render('users/home');
 }
 
 function newMap(req, res) {
