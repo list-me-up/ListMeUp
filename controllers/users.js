@@ -20,8 +20,8 @@ function update(req, res) {
     req.user.time = req.body.time
   
     geocoder.geocode(req.body.city, function (err, data) {
-        req.user.lat = data.results[0].geometry.location.lat
-        req.user.lon = data.results[0].geometry.location.lng
+        req.user.weatherLocation.lat = data.results[0].geometry.location.lat
+        req.user.weatherLocation.lng = data.results[0].geometry.location.lng
         req.user.save(function(err) {
             res.redirect('/');
         });
