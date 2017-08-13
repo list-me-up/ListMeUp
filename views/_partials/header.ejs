@@ -52,10 +52,10 @@
       </div>
     </div>
   </nav>
-
     <% if (user) { %>
       Welcome, <%= user.name %>
       <img src="<%= user.photo %>" class="img-circle">
     <% } else { %>
       <a href="/auth/google">Login with Google</a>
     <% } %>
+  <div class="container">
