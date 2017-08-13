@@ -1,28 +1,52 @@
 <%- include('./../_partials/header') %>
+<div id="map"></div>
 <form method="POST" action="/users/profile?_method=PUT" method="post">
-    <label>Phone Number:</label><input type="text" name="phoneNumber" value="(222) 222-2222">
-    <label>City:</label><input id="addressSearch" name="city">
-    <label>Notification time: </label><input name="time">
-    <input type="submit" value="Submit">
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+      <input id="addressSearch" class="form-control" name="city">
+    </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+      <input type="text" name="phoneNumber" class="form-control" placeholder="555-123-4567">
+    </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+      <input name="time" class="form-control" placeholder="8:00">
+    </div>
+    <input type="submit" class="btn btn-primary btn-lg" value="Update Settings">
 </form>
-    
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9IDQC2FqaO9bsE9NEr3Qon_buW8aVHKo&libraries=places" type="text/javascript"></script>
 <script>
+function initMap() {
+  
+  let map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 34.047900, lng: -118.240132 },
+      zoom: 10,
+  });
 
-const input = document.getElementById('addressSearch');
-var options = {
-  types: ['(cities)']
-};
+  const input = document.getElementById('addressSearch');
 
-var autocomplete = new google.maps.places.Autocomplete(input, options);
+  const options = {
+    types: ['(cities)']
+  };
 
-autocomplete.addListener('place_changed', function() {
-        let place = autocomplete.getPlace();
-        console.log(place)
-        console.log(place.geometry.location.lat());
-        console.log(place.geometry.location.lng());
-})
+  const autocomplete = new google.maps.places.Autocomplete(input, options);
+
+  let marker = new google.maps.Marker({
+    map: map,
+  });
+
+  autocomplete.addListener('place_changed', function () {
+    marker.setVisible(false);
+    var place = autocomplete.getPlace();
+    map.setZoom(14);
+    marker.setPosition(place.geometry.location);
+    var latLng = marker.getPosition();
+    map.setCenter(latLng)
+    marker.setVisible(true);
+  });
+}
 
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9IDQC2FqaO9bsE9NEr3Qon_buW8aVHKo&libraries=places&callback=initMap" async defer></script>
 
 <%- include('./../_partials/footer') %>
