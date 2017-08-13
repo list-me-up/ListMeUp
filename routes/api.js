@@ -6,7 +6,7 @@ var listCtrl = require('../controllers/lists');
 
 // get one list item
 
-router.get('/users', userCtrl.index);
+// router.get('/users', userCtrl.index);
 
 // router.post('/list', isLoggedIn, userCtrl.create)
 

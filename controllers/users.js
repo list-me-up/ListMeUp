@@ -3,8 +3,8 @@ var geocoder = require('geocoder');
 
 function index(req, res) {
     var u = req.user;
-    if (u.lat && u.lon && u.phoneNumber && u.time) {
-        res.redirect('users/list', {user: req.user});
+    if (u.weatherLocation.lat && u.weatherLocation.lng && u.phoneNumber && u.time) {
+        res.render('users/list', {user: req.user});
     } else {
         // redirect to profile
         res.render('users/settings', {user: req.user});
@@ -23,7 +23,7 @@ function update(req, res) {
         req.user.weatherLocation.lat = data.results[0].geometry.location.lat
         req.user.weatherLocation.lng = data.results[0].geometry.location.lng
         req.user.save(function(err) {
-            res.redirect('/');
+            res.redirect('/users/list');
         });
     });
 }
