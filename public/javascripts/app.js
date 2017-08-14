@@ -3,12 +3,12 @@ var template;
 
 console.log('APP IS LOADED');
 
-$(function() {
-    $.get('/api/list')
-})
-
-// list
-
+$.get('/api/list', function(data) {
+    allListItems = data;
+    template = _.template($('#userTemplate').html());
+    // console.log(JSON.stringify(data));
+    render();
+});
 
 function render() {
     $('#all-list').html({list: allListItems});
