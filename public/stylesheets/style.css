@@ -48,9 +48,9 @@ h4 {
   margin: 30px 0;
 }
 
-.table-fixed thead {
+ .table-fixed thead {
   width: 98%;
-}
+} 
 
 .table-fixed tbody {
   padding-top: 20px;
@@ -85,9 +85,9 @@ h4 {
   margin-top: 5px;
 }
 
-hr {
+/* hr {
   margin-left: -40px;
-}
+} */
 
 .col-xs-8 {
   padding-top: 22px !important;

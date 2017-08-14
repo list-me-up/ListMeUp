@@ -12,7 +12,8 @@ function index(req, res) {
 }
 
 function list(req, res) {
-    res.render('users/list');
+    var num = 1;
+    res.render('users/list', {user: req.user});
 }
 
 function update(req, res) {
@@ -32,10 +33,21 @@ function settings(req, res) {
     res.render('users/settings', {user: req.user});
 }
 
+function addItem(req, res) {
+    req.user.list.push({text: req.body.list});
+    req.user.save(function(err) {
+    // console.log(req.body.list)
+    //     console.log(req.user)
+    //     // console.l
+        res.redirect('/users/list');
+    });
+}
+
 
 module.exports = {
     index,
     settings,
     list,
-    update
+    update,
+    addItem
 }
