@@ -11,19 +11,21 @@
       <p class="col-xs-3">Active</p>
       <hr>
 
+      <div id="all-list"></div>
+
       <script type="text/template" id="userTemplate">
-        <%% if (list) { %>
-          <%% list.forEach(item => { %>
+        <%% if (list) { %%>
+          <%% list.forEach(item => { %%>
             <hr>
             <p class="col-xs-3">1</p>
-            <p class="col-xs-6" id="all-list"><%%= item.text %> </p> 
+            <p class="col-xs-6"><%%= item.text %> </p> 
             <p class="col-xs-3">
               <div class="checkbox">
                 <label><input type="checkbox" value=""></label>
               </div>
             </p>
-          <%% }) %>
-        <%% } %>
+          <%% }) %%>
+        <%% } %%>
       </script>
 
     </div>

@@ -1,17 +1,17 @@
-var allListItems;
 var template;
 
 console.log('APP IS LOADED');
 
 $.get('/api/list', function(data) {
-    allListItems = data;
     template = _.template($('#userTemplate').html());
     // console.log(JSON.stringify(data));
-    render();
+    render(data);
 });
 
-function render() {
-    $('#all-list').html({list: allListItems});
+function render(listItems) {
+    console.log(listItems);
+    console.log(template({ list: listItems }))
+    $('#all-list').html(template({list: listItems}))
 }
 
 function addToDo() {
@@ -20,10 +20,7 @@ function addToDo() {
         headers: {'Content-type': 'application/json'},
         credentials: 'include', 
         body: JSON.stringify({list: $('#item').val()})
-    }).then(res => res.json());
-
-    console.log('data sent!!!');
-    render();
+    }).then(res => res.json()).then(data => render(data.list));
     // render();
     // .then(data => {
     //     $('#item').val('');
