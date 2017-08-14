@@ -1,5 +1,8 @@
 var User = require('../models/user');
 
+function index(req, res) {
+    res.json(req.user.list);
+}
 
 // show all items in your list
 // show one item in your list
@@ -9,12 +12,15 @@ var User = require('../models/user');
 
 // create a list item and add it to the array
 function create(req, res) {
-    User.findById(req.user.id, function(err, user) {
-        user.list.push({
-            content: req.body.content
-        });
-        user.save(function(err) {
-            res.json(user);
-        });
+    console.log('user list loaded')
+    req.user.list.push({ text: req.body.list});
+    req.user.save(function(err) {
+        res.json(req.user);
+        console.log(req.user);
     });
+}
+
+module.exports = {
+    create,
+    index
 }

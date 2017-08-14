@@ -11,41 +11,33 @@
       <p class="col-xs-3">Active</p>
       <hr>
 
-      <% if (user.list) { %>
-        <% user.list.forEach(item => { %>
-          <hr>
-          <p class="col-xs-3">1</p>
-          <p class="col-xs-6"><%= item.text %> </p> 
-          <p class="col-xs-3">
-            <div class="checkbox">
-              <label><input type="checkbox" value=""></label>
-            </div>
-          </p>
-        <% }) %>
-      <% } %>
-        
-
-           
-      <!-- <table class="table table-fixed"> -->
-        <!-- <tbody> -->
-            <!-- <tr>
-              <hr>
-          </tr> -->
-        <!-- </tbody> -->
-      <!-- </table> -->
+      <script type="text/template" id="userTemplate">
+        <% if (user.list) { %>
+          <% user.list.forEach(item => { %>
+            <hr>
+            <p class="col-xs-3">1</p>
+            <p class="col-xs-6" id="all-list"><%= item.text %> </p> 
+            <p class="col-xs-3">
+              <div class="checkbox">
+                <label><input type="checkbox" value=""></label>
+              </div>
+            </p>
+          <% }) %>
+        <% } %>
+      </script>
+      
     </div>
   </div>
 </div>
 
 <div class="container">
-  <form action="/users/list" method="POST">
+  <!-- <form action="/api/users/list" method="POST"> -->
     <div>
-      <input type="text" onclick="addItem()" name="list" class="form-control" placeholder="Add item...">
-      <!-- <button type="submit">Add</button> -->
+      <input type="text" id="item" name="list" class="form-control" placeholder="Add item...">
+      <button type="submit" onclick="addToDo()">Add</button> 
     </div>
-  </form>
+  <!-- </form> -->
 </div>
-
 
 
 
@@ -103,6 +95,6 @@
         </div>
     </div>
   </div> -->
-<!-- <script type="text/javascript" src="./javascripts/app.js"></script>  -->
+ <script type="text/javascript" src="./../javascripts/app.js"></script>  
 
 <%- include('./../_partials/footer') %>

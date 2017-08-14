@@ -1,9 +1,44 @@
 var allListItems;
 var template;
 
+console.log('APP IS LOADED');
+
 $(function() {
-    $.get('/')
+    $.get('/api/list')
 })
+
+// list
+
+
+function render() {
+    $('#all-list').html({list: allListItems});
+}
+
+function addToDo() {
+    fetch('/api/users/list', {
+        method: 'POST',
+        headers: {'Content-type': 'application/json'},
+        credentials: 'include', 
+        body: JSON.stringify({list: $('#item').val()})
+    }).then(res => res.json());
+
+    console.log('data sent!!!');
+    render();
+    // render();
+    // .then(data => {
+    //     $('#item').val('');
+    //     var idx
+    // })
+}
+
+
+
+
+
+// $(function() {
+//     $.get('/')
+// })
+
 
 
 

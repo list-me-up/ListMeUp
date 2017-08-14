@@ -2,12 +2,28 @@ var router = require('express').Router();
 var userCtrl = require('../controllers/users');
 var listCtrl = require('../controllers/lists');
 
-// get all list items
 
-// get one list item
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/auth/google');
+}
 
-// router.get('/users', userCtrl.index);
+// GET /api/students
+router.get('/list', isLoggedIn, listCtrl.index);
 
-// router.post('/list', isLoggedIn, userCtrl.create)
+
+// POST /api/facts
+router.post('/users/list', isLoggedIn, listCtrl.create);
+// router.post('/users/list',function(req, res) {
+//     console.log("LOADDEEDD");
+// });
+
+// DELETE /api/facts/:id
+// router.delete('/facts/:id', isLoggedIn, (req, res) => {
+//   console.log('aosidjfoasidjfoasidfj')
+
+//   res.send('poop')
+// });
+// router.delete('/facts/:id', isLoggedIn, factsCtrl.delete);
 
 module.exports = router;
