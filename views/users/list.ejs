@@ -1,102 +1,55 @@
-<!-- <div class="container" id="wrap">
-    <div class="row">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4> Your List: </h4>
-          </div>
-          <table class="table table-fixed">
-            <thead>
-              <tr>
-                <th class="col-xs-2">#</th><th class="col-xs-8">Task</th><th class="col-xs-2">Active</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="col-xs-2">1</td><td class="col-xs-8">Check Weather</td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <label><input type="checkbox" value=""></label>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-xs-2">2</td><td class="col-xs-8">Bring Keys</td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <label><input type="checkbox" value=""></label>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-xs-2">3</td><td class="col-xs-8">Go to Market</td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <label><input type="checkbox" value=""></label>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-xs-2">4</td><td class="col-xs-8">Call Mom</td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <label><input type="checkbox" value=""></label>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-xs-2">5</td><td class="col-xs-8">Drive Bob to Airport</td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <label><input type="checkbox" value=""></label>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-xs-2">6</td><td class="col-xs-8">Call Sheila</td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <label><input type="checkbox" value=""></label>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-xs-2">7</td><td class="col-xs-8">Sell clothes</td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <label><input type="checkbox" value=""></label>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-xs-2">8</td><td class="col-xs-8">Work on Project 3</td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <label><input type="checkbox" value=""></label>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="col-xs-2">9</td><td class="col-xs-8">Watch GOT</td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <label><input type="checkbox" value=""></label>
-                    </div>
-                </td>
+<%- include('./../_partials/header') %>
 
-              </tr>
-              <tr>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <br>
+      <h4>Your List</h4>
+      <hr>
+      <p class="col-xs-3">#</p>
+      <p class="col-xs-6">Item</p>
+      <p class="col-xs-3">Active</p>
+      <hr>
 
+      <% if (user.list) { %>
+        <% user.list.forEach(item => { %>
+          <hr>
+          <p class="col-xs-3">1</p>
+          <p class="col-xs-6"><%= item.text %> </p> 
+          <p class="col-xs-3">
+            <div class="checkbox">
+              <label><input type="checkbox" value=""></label>
+            </div>
+          </p>
+        <% }) %>
+      <% } %>
+        
 
-
-                <td class="col-xs-2">10</td><td class="col-xs-8">
-                  <textarea id="new-item"></textarea>
-                  <ul id="items"></ul>
-                
-                </td><td class="col-xs-2">
-                  <div class="checkbox">
-                      <input type="button" id="btn-send-item" value="Add">
-                    </div>
-                </td>
-               
-              
-
-              </tr>
-            </tbody>
-          </table>
-        </div>
+           
+      <!-- <table class="table table-fixed"> -->
+        <!-- <tbody> -->
+            <!-- <tr>
+              <hr>
+          </tr> -->
+        <!-- </tbody> -->
+      <!-- </table> -->
     </div>
-  </div> -->
+  </div>
+</div>
+
+<div class="container">
+  <form action="/users/list" method="POST">
+    <div>
+      <input type="text" onclick="addItem()" name="list" class="form-control" placeholder="Add item...">
+      <!-- <button type="submit">Add</button> -->
+    </div>
+  </form>
+</div>
+
+
+
+
+
 
   <!-- <div class="container" id="wrap">
     <div class="row">
@@ -150,28 +103,6 @@
         </div>
     </div>
   </div> -->
+<!-- <script type="text/javascript" src="./javascripts/app.js"></script>  -->
 
-  <div class="container" id="wrap">
-     <div class="row"> 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>Your List:</h4>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th class="col-xs-2">#</th>
-              <th class="col-xs-8">Task</th>
-              <th class="col-xs-2">Active</th>
-            </tr>
-          </thead>
-        </table>
-      
-        <ul id="items"></ul>
-        <textarea id="new-item"></textarea>
-        <input type="button" id="btn-send-item" value="Add">
-      </div>
-    </div>
-  </div>
-
-<script type="text/javascript" src="./javascripts/app.js"></script> 
+<%- include('./../_partials/footer') %>

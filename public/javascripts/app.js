@@ -1,3 +1,16 @@
+var allListItems;
+var template;
+
+$(function() {
+    $.get('/')
+})
+
+
+
+
+
+
+
 // var allListItems = [];
 // var filteredList = [];
 // var searchList = '';
