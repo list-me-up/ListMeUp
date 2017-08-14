@@ -12,7 +12,7 @@ function index(req, res) {
 }
 
 function list(req, res) {
-    var num = 1;
+    var num = 0;
     res.render('users/list', {user: req.user});
 }
 

@@ -4,15 +4,9 @@ function index(req, res) {
     res.json(req.user.list);
 }
 
-// show all items in your list
-// show one item in your list
-// add item to your list
-// remove item from your list
-// edit/update item in your list
-
 // create a list item and add it to the array
 function create(req, res) {
-    console.log('user list loaded')
+    // console.log('user list loaded')
     req.user.list.push({ text: req.body.list});
     req.user.save(function(err) {
         res.json(req.user);
@@ -20,7 +14,26 @@ function create(req, res) {
     });
 }
 
+function show(req, res) {
+    req.user.list[req.params.id];
+    res.render('users/show', {list: req.user.list[req.params.id]});
+}
+
+function deleteFact(req, res) {
+    // console.log(req.params.id)
+    User.findById(req.user._id, function(err, user) {
+        user.list.remove(req.params.id)
+        user.save(function(err) {
+            res.json(user.list);
+        });
+    });
+}
+
+// show one item in your list
+// edit/update item in your list
 module.exports = {
     create,
-    index
+    index,
+    show,
+    delete: deleteFact
 }
