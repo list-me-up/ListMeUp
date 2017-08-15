@@ -6,13 +6,30 @@ body {
 
 ul, li {
   font-size: 18px;
+  list-style-type: none; 
   color: #8b8378;
+}
+
+#help {
+  color: red !important;
+}
+
+#help:hover {
+  color: #eee9e9 !important;
 }
 
 .navbar-brand {
   margin-top: 14px;
   font-weight: 600;
   font-size: 26px;
+}
+
+#dropdown {
+  color: white;
+}
+
+.dropdown-item {
+  margin: 20px !important;
 }
 
 h4 {
@@ -55,9 +72,11 @@ a:hover {
 .container {
   text-align: center;
 }
+
 .input-group {
   padding: 10px 0px;
 }
+
 /* Customize container */
 @media (min-width: 768px) {
   .container {
