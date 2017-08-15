@@ -20,7 +20,6 @@ function show(req, res) {
 }
 
 function deleteFact(req, res) {
-    // console.log(req.params.id)
     User.findById(req.user._id, function(err, user) {
         user.list.remove(req.params.id)
         user.save(function(err) {
