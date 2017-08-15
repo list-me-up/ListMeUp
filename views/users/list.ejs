@@ -10,7 +10,6 @@
       <p class="col-xs-6">Item</p>
       <p class="col-xs-3">Active</p>
       <br>
-      <!-- <hr> -->
 
       <div id="all-list"></div>
 
@@ -19,30 +18,29 @@
           <%% list.forEach(item => { %%>
             <hr>
             <p class="col-xs-3">1</p>
-            <p class="col-xs-6"><%%= item.text %> </p> 
+            <p class="col-xs-6"><a href="/api/users/list/<%%= item._id %>"><%%= item.text %></a></p> 
             <p class="col-xs-3">
-              <div class="checkbox">
-                <label><input type="checkbox" value=""></label>
-              </div>
-            <form action="/api/users/list/<%%= item._id %>?_method=DELETE" method="POST">
-                <button type="submit" data-itemId="<%%= item._id %>" class="btn">X</button>
-            </form>
+              <form action="/api/users/list/<%%= item._id %>?_method=DELETE" method="POST">
+                  <button type="submit" data-itemId="<%%= item._id %>" class="btn">X</button>
+              </form>
             </p>
           <%% }) %%>
         <%% } %%>
       </script>
-
     </div>
   </div>
 </div>
 
+<!-- if we want to add checkbox functionality -->
+<!-- <div class="checkbox">
+        <label><input type="checkbox" value=""></label>
+      </div> -->
+
 <div class="container">
-  <!-- <form action="/api/users/list" method="POST"> -->
     <div>
       <input type="text" id="item" name="list" class="form-control" placeholder="Add item...">
       <button type="submit" onclick="addToDo()">Add</button> 
     </div>
-  <!-- </form> -->
 </div>
 
  <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>

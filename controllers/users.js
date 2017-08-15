@@ -6,7 +6,6 @@ function index(req, res) {
     if (u.weatherLocation.lat && u.weatherLocation.lng && u.phoneNumber && u.time) {
         res.render('users/list', {user: req.user});
     } else {
-        // redirect to profile
         res.render('users/settings', {user: req.user});
     }
 }
@@ -33,18 +32,9 @@ function settings(req, res) {
     res.render('users/settings', {user: req.user});
 }
 
-// function addItem(req, res) {
-//     req.user.list.push({text: req.body.list});
-//     req.user.save(function(err) {
-//         res.redirect('/users/list');
-//     });
-// }
-
-
 module.exports = {
     index,
     settings,
     list,
     update
-    // addItem
 }

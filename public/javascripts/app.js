@@ -8,7 +8,6 @@ $.get('/api/list', function(data) {
     render(data);
 });
 
-
 function render(listItems) {
     $('#all-list').html(template({list: listItems}))
 }
@@ -22,12 +21,11 @@ function addToDo() {
     }).then(res => res.json()).then(data => render(data.list)).then({list: $('#item').val('')});
 }
 
-
 $('#all-list').submit(function(event) {
     event.preventDefault();
     let currentId = $('button', event.target).attr('data-itemId');
     removeToDo(currentId);
-})
+});
 
 function removeToDo(itemId) {
     fetch('/api/users/list/' + itemId, {
