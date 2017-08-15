@@ -10,8 +10,8 @@ const telephone = process.env.TWILIO_NUMBER
 
 const twilio = require('twilio')(accountSid, token);
 
-var listSchema = new Schema({
-    text: String,
+var toDoListSchema = new Schema({
+    text: String
 }, {
     timestamps: true
 });
@@ -24,7 +24,7 @@ var userSchema = new Schema({
     phoneNumber: String,
     time: Number,
     photo: String,
-    list: [listSchema],
+    list: [toDoListSchema]
 }, {
     timestamps: true
 });

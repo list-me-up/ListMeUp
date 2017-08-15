@@ -4,7 +4,7 @@ var geocoder = require('geocoder');
 function index(req, res) {
     var u = req.user;
     if (u.weatherLocation.lat && u.weatherLocation.lng && u.phoneNumber && u.time) {
-        res.render('users/list', {user: req.user});
+        res.render('list/to-do', {user: req.user});
     } else {
         res.render('users/settings', {user: req.user});
     }
@@ -12,7 +12,7 @@ function index(req, res) {
 
 function list(req, res) {
     var num = 0;
-    res.render('users/list', {user: req.user});
+    res.render('list/to-do', {user: req.user});
 }
 
 function update(req, res) {
@@ -23,7 +23,7 @@ function update(req, res) {
         req.user.weatherLocation.lat = data.results[0].geometry.location.lat
         req.user.weatherLocation.lng = data.results[0].geometry.location.lng
         req.user.save(function(err) {
-            res.redirect('/users/list');
+            res.redirect('/list');
         });
     });
 }
