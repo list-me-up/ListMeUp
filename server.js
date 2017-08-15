@@ -24,6 +24,7 @@ const twilio = require('twilio')(accountSid, token);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var list = require('./routes/list');
 var api = require('./routes/api');
 
 var app = express();
@@ -50,7 +51,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/', users);
+app.use('/', list);
 app.use('/api', api);
 
 // catch 404 and forward to error handler

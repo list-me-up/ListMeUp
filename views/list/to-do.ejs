@@ -1,0 +1,50 @@
+<%- include('./../_partials/header') %>
+
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <br>
+      <h4>Your List</h4>
+      <hr>
+      <p class="col-xs-3">#</p>
+      <p class="col-xs-6">Item</p>
+      <p class="col-xs-3">Active</p>
+      <br>
+
+      <div id="all-list"></div>
+
+      <script type="text/template" id="userTemplate">
+        <%% if (list) { %%>
+          <%% list.forEach(item => { %%>
+            <hr>
+            <p class="col-xs-3">1</p>
+            <p class="col-xs-6"><a href="/list/<%%= item._id %>"><%%= item.text %></a></p> 
+            <p class="col-xs-3">
+              <form action="/list/<%%= item._id %>?_method=DELETE" method="POST">
+                  <button type="submit" data-itemId="<%%= item._id %>" class="btn">X</button>
+              </form>
+            </p>
+          <%% }) %%>
+        <%% } %%>
+      </script>
+    </div>
+  </div>
+</div>
+
+<!-- if we want to add checkbox functionality -->
+<!-- <div class="checkbox">
+        <label><input type="checkbox" value=""></label>
+      </div> -->
+
+<div class="container">
+    <div class="input-group input-group-sm">
+      <span class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></span>
+      <input type="text" id="item" name="list" class="form-control" placeholder="Add item...">
+    </div>
+    <button class="btn" type="submit" onclick="addToDo()">Add</button> 
+</div>
+
+<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script async defer type="text/javascript" src="./../javascripts/app.js"></script>  
+
+<%- include('./../_partials/footer') %>
