@@ -10,6 +10,7 @@ var passport = require('passport');
 
 require('./config/database');
 require('./config/passport');
+require('./config/notifications');
 
 // require environment variables
 require('dotenv').config();
