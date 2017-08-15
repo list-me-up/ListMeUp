@@ -18,6 +18,10 @@ router.post('/users/list', isLoggedIn, listCtrl.create);
 //     console.log("LOADDEEDD");
 // });
 
+router.get('/users/list/:id', isLoggedIn, listCtrl.show);
+
+
+router.delete('/users/list/:id', isLoggedIn, listCtrl.delete);
 // DELETE /api/facts/:id
 // router.delete('/facts/:id', isLoggedIn, (req, res) => {
 //   console.log('aosidjfoasidjfoasidfj')

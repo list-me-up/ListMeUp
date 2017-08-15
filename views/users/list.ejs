@@ -9,7 +9,8 @@
       <p class="col-xs-3">#</p>
       <p class="col-xs-6">Item</p>
       <p class="col-xs-3">Active</p>
-      <hr>
+      <br>
+      <!-- <hr> -->
 
       <div id="all-list"></div>
 
@@ -23,6 +24,9 @@
               <div class="checkbox">
                 <label><input type="checkbox" value=""></label>
               </div>
+            <form action="/api/users/list/<%%= item._id %>?_method=DELETE" method="POST">
+                <button type="submit" data-itemId="<%%= item._id %>" class="btn">X</button>
+            </form>
             </p>
           <%% }) %%>
         <%% } %%>
@@ -41,62 +45,6 @@
   <!-- </form> -->
 </div>
 
-
-
-
-
-  <!-- <div class="container" id="wrap">
-    <div class="row">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4> Your List: </h4>
-          </div>
-          <table class="table table-fixed">
-            <thead>
-              <tr>
-                <th class="col-xs-2">#</th><th class="col-xs-8">Task</th><th class="col-xs-2">Active</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <div id="table">
-                <tr>
-                  <td class="col-xs-2">1</td><td class="col-xs-8">Check Weather</td>
-                  <td class="col-xs-2">
-                    <div class="checkbox">
-                        <label><input type="checkbox" value=""></label>
-                      </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td class="col-xs-2">3</td><td class="col-xs-8"><div id="items"></div> </td>
-                  <td class="col-xs-2">
-                    <div class="checkbox">
-                        <label><input type="checkbox" value=""></label>
-                      </div>
-                  </td>
-                </tr>
-              </div>
-        
-              <tr>
-                <td class="col-xs-2">3</td>
-                <td class="col-xs-8">
-                  <textarea id="new-item"></textarea>
-      
-                </td><td class="col-xs-2">
-                  <div class="checkbox">
-                    <input type="button" id="btn-send-item" value="Add">
-                  </div>
-                </td>
-
-              </tr>
-              
-            </tbody>
-          </table>
-        </div>
-    </div>
-  </div> -->
  <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
  <script async defer type="text/javascript" src="./../javascripts/app.js"></script>  
 
