@@ -9,9 +9,9 @@
       <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
       <input type="text" name="phoneNumber" class="form-control" placeholder="555-123-4567">
     </div>
-    <div class="input-group input-group-lg">
+    <div class="input-group input-group-lg clockpicker">
       <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-      <input name="time" class="form-control" placeholder="8:00">
+      <input name="time" type="text" class="form-control" value="8:00">
     </div>
     <input type="submit" class="btn btn-primary btn-lg" value="Update Settings">
 </form>
@@ -48,5 +48,7 @@ function initMap() {
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9IDQC2FqaO9bsE9NEr3Qon_buW8aVHKo&libraries=places&callback=initMap" async defer></script>
+<script src="/javascripts/bootstrap-clockpicker.min.js"></script>
+<script type="text/javascript">$('.clockpicker').clockpicker({donetext: 'Done', placement: 'top', align: 'left'});</script>
 
 <%- include('./../_partials/footer') %>

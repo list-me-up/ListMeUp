@@ -22,7 +22,7 @@ var userSchema = new Schema({
     googleId: String,
     weatherLocation: {lat: Number, lng: Number},
     phoneNumber: String,
-    time: Number,
+    time: String,
     photo: String,
     list: [toDoListSchema]
 }, {
@@ -46,10 +46,10 @@ userSchema.methods.sendMessage = function() {
     this.getWeather()
     .then(weather => {
         twilio.messages.create({
-            to: `+1${this.phoneNumber}`,
+            to: this.phoneNumber,
             from: telephone,
             body: 
-            `Hello, ${this.name} - todays forecast is ${weather.forecast} 
+            `Hello, ${this.name} - today's forecast is ${weather.forecast} 
 
 ☑️${todo}`,
             mediaUrl: `https://s3-us-west-1.amazonaws.com/listmeup/${weather.icon}.png`,

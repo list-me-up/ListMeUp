@@ -1,5 +1,7 @@
 var User = require('../models/user');
 var geocoder = require('geocoder');
+const PNF = require('google-libphonenumber').PhoneNumberFormat;
+const phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
 
 function index(req, res) {
     var u = req.user;
@@ -16,8 +18,11 @@ function list(req, res) {
 }
 
 function update(req, res) {
-    req.user.phoneNumber = req.body.phoneNumber
-    req.user.time = req.body.time
+    let time = req.body.time
+    req.user.time = time.replace(/:/, '')
+
+    let phoneNumber = phoneUtil.parse(req.body.phoneNumber, 'US');
+    req.user.phoneNumber = phoneUtil.format(phoneNumber, PNF.E164)
   
     geocoder.geocode(req.body.city, function (err, data) {
         req.user.weatherLocation.lat = data.results[0].geometry.location.lat
@@ -26,6 +31,7 @@ function update(req, res) {
             res.redirect('/list');
         });
     });
+
 }
 
 function settings(req, res) {
