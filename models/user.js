@@ -36,18 +36,23 @@ userSchema.methods.getWeather = function() {
         request(url, function (error, response, body) {
             if (error) reject(error);
             let weatherData = JSON.parse(body)
-            resolve(weatherData.hourly.summary);
+            resolve({ forecast: weatherData.hourly.summary, icon: weatherData.hourly.icon });
         });
     });
 }
 
 userSchema.methods.sendMessage = function() {
+    todo = this.list[0].text
     this.getWeather()
     .then(weather => {
         twilio.messages.create({
             to: `+1${this.phoneNumber}`,
             from: telephone,
-            body: `Hello, ${this.name} - the current weather is ${weather}`,
+            body: 
+            `Hello, ${this.name} - todays forecast is ${weather.forecast} 
+
+☑️${todo}`,
+            mediaUrl: `https://s3-us-west-1.amazonaws.com/listmeup/${weather.icon}.png`,
         }, function (err, message) {
             if (err) {
                 console.log(err);
