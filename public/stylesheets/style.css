@@ -1,5 +1,7 @@
 body {
   margin: 0 auto;
+  color: #8b8378;
+  /* min-height: 300px; */
 }
 
 ul, li {
@@ -7,9 +9,27 @@ ul, li {
   color: #8b8378;
 }
 
+.navbar-brand {
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 26px;
+}
+
 h4 {
+  padding: 15px;
   margin-top: 6px;
   margin-bottom: 6px;
+  padding-bottom: 30px;
+}
+
+a {
+  color: #8b8378;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #eee9e9;
 }
 
 .panel-default>.panel-heading {
@@ -48,7 +68,7 @@ h4 {
   margin: 30px 0;
 }
 
- .table-fixed thead {
+.table-fixed thead {
   width: 98%;
 } 
 
