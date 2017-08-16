@@ -1,4 +1,5 @@
 var template;
+var sos = false;
 
 console.log('APP IS LOADED');
 
@@ -17,7 +18,10 @@ function addToDo() {
         method: 'POST',
         headers: {'Content-type': 'application/json'},
         credentials: 'include', 
-        body: JSON.stringify({list: $('#item').val()})
+        body: JSON.stringify({
+            text: $('#item').val(),
+            sos: sos
+        })
     }).then(res => res.json()).then(data => render(data.list)).then({list: $('#item').val('')});
 }
 
@@ -35,3 +39,17 @@ function removeToDo(itemId) {
         body: JSON.stringify({list: $('#item').val()})
     }).then(res => res.json()).then(data => render(data));
 }
+
+document.getElementById('normal').addEventListener('click', function() {
+    $('#item').css({'color': '#8b8378'});
+    sos = false;
+});
+
+document.getElementById('help').addEventListener('click', function() {  
+    $('#item').css({'color': 'red'});
+    sos = true;
+});
+
+$('.dropdown-item').on('click', function(e) {
+    e.preventDefault();
+});
