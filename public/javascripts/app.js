@@ -42,11 +42,13 @@ function removeToDo(itemId) {
 
 document.getElementById('normal').addEventListener('click', function() {
     $('#item').css({'color': '#8b8378'});
+    $('#dropdown').css({'color': 'white'});
     sos = false;
 });
 
 document.getElementById('help').addEventListener('click', function() {  
     $('#item').css({'color': 'red'});
+    $('#dropdown').css({'color': 'red'});
     sos = true;
 });
 

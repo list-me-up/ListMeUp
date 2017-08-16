@@ -25,7 +25,11 @@ ul, li {
 }
 
 .header {
-  padding-bottom: 15px;
+  padding-bottom: 20px;
+}
+
+.show-bod {
+  margin: -15px; 
 }
 
 #dropdown {
@@ -50,17 +54,27 @@ h4 {
 a {
   color: #8b8378;
   text-decoration: none;
+  font-size: 20px;
 }
 
 a:hover {
   text-decoration: none;
-  color: #eee9e9;
+  color: #bc8f8f !important;
 }
 
 .panel-default>.panel-heading {
   background-color: #E6DEDC;
   color: #8b8378;
 }
+
+#num-show {
+  padding-top: 18px;
+  padding-left: 38px;
+}
+
+#text-show {
+  padding-top: 20px;
+} 
 
 .navbar {
   background-color: #eee9e9;
