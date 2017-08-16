@@ -8,6 +8,7 @@ function isLoggedIn(req, res, next) {
 
 router.get('/list', isLoggedIn, apiCtrl.index);
 router.post('/users/list', isLoggedIn, apiCtrl.create);
+router.put('/users/list/:id', isLoggedIn, apiCtrl.update);
 router.delete('/users/list/:id', isLoggedIn, apiCtrl.delete);
 
 module.exports = router;

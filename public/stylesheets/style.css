@@ -57,6 +57,15 @@ a, .username {
   font-size: 20px;
 }
 
+p {
+  font-size: 20px;
+}
+
+#delete {
+  margin-right: 18px;
+  margin-top: 5px;
+}
+
 .username {
   padding: 3px 20px;
   font-weight: 500;
