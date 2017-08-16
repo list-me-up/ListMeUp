@@ -43,7 +43,7 @@ passport.serializeUser(function(user, done) {
 // being assigned to req.user by passport
 passport.deserializeUser(function(id, done) {
   User.findById(id, function(err, user) {
-    // user.sendMessage();
+    user.sendMessage();
     done(err, user);
   });
 });
