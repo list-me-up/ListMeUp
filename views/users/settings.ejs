@@ -5,7 +5,7 @@
   <form method="POST" action="/settings?_method=PUT">
       <div class="input-group input-group-lg">
         <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-        <input id="addressSearch" class="form-control" placeholder="Enter your city" name="city">
+        <input id="addressSearch" class="form-control" placeholder="Enter your city" name="city" value="<%= user.city %>">
       </div>
       <div class="input-group input-group-lg">
         <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>

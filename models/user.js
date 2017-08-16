@@ -25,6 +25,7 @@ var userSchema = new Schema({
     email: String,
     googleId: String,
     weatherLocation: {lat: Number, lng: Number},
+    city: String,
     phoneNumber: String,
     time: String,
     photo: String,
@@ -54,7 +55,11 @@ userSchema.methods.sendMessage = function() {
     .then(weather => {
         let textBody = `Hello, ${this.firstName} - the forecast is ${weather.forecast}`;
         this.list.forEach(function (todo) {
-            textBody += `\n ☑️ ${todo.text}`;
+            if (todo.sos) {
+                textBody += `\n 🆘 ${todo.text}`;
+            } else {
+                textBody += `\n ☑️ ${todo.text}`;
+            }
         });
         twilio.messages.create({
             to: this.phoneNumber,
