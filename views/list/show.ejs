@@ -13,7 +13,7 @@
 
         <hr>
         <p class="col-xs-3">1</p>
-        <p class="col-xs-6"><%=list.text%></p>
+        <p class="col-xs-6" <%- list.sos && 'style="color: red"'%>><%=list.text%></p>
         <p class="col-xs-3">
           <form action="/list/<%%= item._id %>?_method=DELETE" method="POST">
               <button type="submit" data-itemId="<%%= item._id %>" class="btn">X</button>
@@ -30,7 +30,7 @@
   <form action="/list/<%= list._id %>?_method=PUT" method="POST">
     <div class="input-group input-group-lg">
       <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-      <input name="list" class="form-control" placeholder="<%= list.text%> ">
+      <input name="list" class="form-control" value="<%= list.text%>" <%- list.sos && 'style="color: red"'%>>
     </div>
       <button class="btn" type="submit">Update</button> 
    </form>

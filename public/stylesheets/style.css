@@ -24,12 +24,20 @@ ul, li {
   font-size: 26px;
 }
 
+.header {
+  padding-bottom: 15px;
+}
+
 #dropdown {
   color: white;
 }
 
 .dropdown-item {
   margin: 20px !important;
+}
+
+h3 {
+  padding-bottom: 13px;
 }
 
 h4 {
