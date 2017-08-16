@@ -3,7 +3,7 @@ function index(req, res) {
 }
 
 function create(req, res) {
-    req.user.list.push({ text: req.body.list});
+    req.user.list.push(req.body);
     req.user.save(function(err) {
         res.json(req.user);
         console.log(req.user);

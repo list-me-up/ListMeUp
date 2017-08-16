@@ -18,7 +18,7 @@
           <%% list.forEach(item => { %%>
             <hr>
             <p class="col-xs-3">1</p>
-            <p class="col-xs-6"><a href="/list/<%%= item._id %>"><%%= item.text %></a></p> 
+            <p class="col-xs-6"><a href="/list/<%%= item._id %>" <%%= item.sos && 'style="color: red"'%>><%%= item.text %></a></p> 
             <p class="col-xs-3">
               <form action="/list/<%%= item._id %>?_method=DELETE" method="POST">
                   <button type="submit" data-itemId="<%%= item._id %>" class="btn">X</button>
@@ -46,9 +46,9 @@
           <span><span class="glyphicon glyphicon-plus"></span></span>
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Normal</a>
+          <a class="dropdown-item" href="" id="normal">Normal</a>
           <div role="separator" class="divider"></div>
-          <a class="dropdown-item" href="#" id="help">SOS</a>
+          <a class="dropdown-item" href="" id="help">SOS</a>
         </div>
       </div>
       <input type="text" id="item" name="list" class="form-control" placeholder="Add item...">

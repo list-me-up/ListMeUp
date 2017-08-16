@@ -11,7 +11,11 @@ const telephone = process.env.TWILIO_NUMBER
 const twilio = require('twilio')(accountSid, token);
 
 var toDoListSchema = new Schema({
-    text: String
+    text: String,
+    sos: {
+        type: Boolean,
+        default: false
+    }
 }, {
     timestamps: true
 });

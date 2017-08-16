@@ -31,6 +31,7 @@ function update(req, res) {
         req.user.weatherLocation.lat = data.results[0].geometry.location.lat
         req.user.weatherLocation.lng = data.results[0].geometry.location.lng
         req.user.save(function(err) {
+            if (err) return res.render('users/settings', {err});
             res.redirect('/list');
         });
     });
