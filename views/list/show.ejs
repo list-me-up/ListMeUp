@@ -1,27 +1,27 @@
 <%- include('./../_partials/header') %>
 
-<div class="container">
+<div class="container" id="container">
   <div class="row">
     <div class="panel panel-default">
         <br>
-        <h4>Your List</h4>
+        <h3>Your List</h3>
         <hr>
-        <p class="col-xs-3">#</p>
-        <p class="col-xs-6">Item</p>
-        <p class="col-xs-3">Active</p>
-        <br>
-
-        <hr>
-        <p class="col-xs-3">1</p>
-        <p class="col-xs-6"><%=list.text%></p>
-        <p class="col-xs-3">
-          <form action="/list/<%%= item._id %>?_method=DELETE" method="POST">
-              <button type="submit" data-itemId="<%%= item._id %>" class="btn">X</button>
-          </form>
-        </p>
-        <br>
-        <br>
-          
+        <div class="header">
+          <p class="col-xs-3">#</p>
+          <p class="col-xs-6">Item</p>
+          <p class="col-xs-3">Active</p>
+        </div>
+        <br><hr>
+        <div class="show-bod">
+          <p class="col-xs-3" id="num-show">1</p>
+          <p class="col-xs-6" id="text-show" <%- list.sos && 'style="color: red"'%>><%=list.text%></p>
+          <p class="col-xs-3">
+            <form action="/list/<%%= item._id %>?_method=DELETE" method="POST">
+                <button type="submit" data-itemId="<%%= item._id %>" class="btn">X</button>
+            </form>
+          </p> 
+        </div>
+        <br><br>   
     </div>
   </div>
 </div> 
@@ -30,10 +30,10 @@
   <form action="/list/<%= list._id %>?_method=PUT" method="POST">
     <div class="input-group input-group-lg">
       <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-      <input name="list" class="form-control" placeholder="<%= list.text%> ">
+      <input name="list" class="form-control" value="<%= list.text%>" <%- list.sos && 'style="color: red"'%>>
     </div>
       <button class="btn" type="submit">Update</button> 
    </form>
-</div>
+<!-- </div> -->
 
 <%- include('./../_partials/footer') %>

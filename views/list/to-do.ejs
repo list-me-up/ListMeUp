@@ -1,14 +1,17 @@
 <%- include('./../_partials/header') %>
 
-<div class="container">
+<div class="container" id="container">
   <div class="row">
     <div class="panel panel-default">
       <br>
-      <h4>Your List</h4>
+      <h3>Your List</h3>
       <hr>
-      <p class="col-xs-3">#</p>
-      <p class="col-xs-6">Item</p>
-      <p class="col-xs-3">Active</p>
+
+      <div class="header">
+        <p class="col-xs-3">#</p>
+        <p class="col-xs-6">Item</p>
+        <p class="col-xs-3">Active</p> 
+      </div>
       <br>
 
       <div id="all-list"></div>
@@ -37,28 +40,24 @@
       </div> -->
 
 <div class="container">
-
   <div class="row">
-  <div class="col-lg-6">
-    <div class="input-group input-group-lg">
-      <div class="input-group-btn">
-        <button id="dropdown" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span><span class="glyphicon glyphicon-plus"></span></span>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="" id="normal">Normal</a>
-          <div role="separator" class="divider"></div>
-          <a class="dropdown-item" href="" id="help">SOS</a>
+    <div class="col-lg-12">
+      <div class="input-group input-group-lg">
+        <div class="input-group-btn">
+          <button id="dropdown" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="" id="normal">Normal</a>
+            <div role="separator" class="divider"></div>
+            <a class="dropdown-item" href="" id="help">SOS</a>
+          </div>
         </div>
+        <input type="text" id="item" name="list" class="form-control" placeholder="Add item...">
       </div>
-      <input type="text" id="item" name="list" class="form-control" placeholder="Add item...">
-      <!-- <input type="text" class="form-control" aria-label="Text input with dropdown button"> -->
-    </div>
-  </div>
-
-  
-    
-    <button class="btn" type="submit" onclick="addToDo()">Add</button> 
+    </div>    
+      <button class="btn" type="submit" onclick="addToDo()">Add</button> 
+  <!-- </div> -->
 </div>
 
 <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
