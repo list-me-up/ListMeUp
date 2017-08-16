@@ -29,6 +29,10 @@ var userSchema = new Schema({
     timestamps: true
 });
 
+userSchema.virtual('firstName').get(function() {
+    return this.name.split(' ')[0]
+})
+
 userSchema.methods.getWeather = function() {
     const url = `https://api.darksky.net/forecast/b43f78358ca0251b8838368a5f9c0279/${this.weatherLocation.lat},${this.weatherLocation.lng}`
     
@@ -43,15 +47,18 @@ userSchema.methods.getWeather = function() {
 
 userSchema.methods.sendMessage = function() {
     todo = this.list[0].text
+    todo1 = this.list[1].text
     this.getWeather()
     .then(weather => {
         twilio.messages.create({
             to: this.phoneNumber,
             from: telephone,
             body: 
-            `Hello, ${this.name} - today's forecast is ${weather.forecast} 
+            `Hello, ${this.firstName} - the forecast is ${weather.forecast}
+Reminders:
 
-☑️${todo}`,
+☑️${todo}
+☑️${todo1}`,
             mediaUrl: `https://s3-us-west-1.amazonaws.com/listmeup/${weather.icon}.png`,
         }, function (err, message) {
             if (err) {
