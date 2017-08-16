@@ -18,12 +18,16 @@ function list(req, res) {
 }
 
 function update(req, res) {
+    console.log(req.body)
     let time = req.body.time
     req.user.time = time.replace(/:/, '')
 
     let phoneNumber = phoneUtil.parse(req.body.phoneNumber, 'US');
     req.user.phoneNumber = phoneUtil.format(phoneNumber, PNF.E164)
+
     geocoder.geocode(req.body.city, function (err, data) {
+        console.log(data.results[0].address_components[0].long_name)
+        console.log(data.results[0].address_components[2].short_name)
         req.user.weatherLocation.lat = data.results[0].geometry.location.lat
         req.user.weatherLocation.lng = data.results[0].geometry.location.lng
         req.user.save(function(err) {

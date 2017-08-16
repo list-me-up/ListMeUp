@@ -3,15 +3,15 @@
 <form method="POST" action="/settings?_method=PUT">
     <div class="input-group input-group-lg">
       <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-      <input id="addressSearch" class="form-control" name="city">
+      <input id="addressSearch" class="form-control" placeholder="Enter your city" name="city">
     </div>
     <div class="input-group input-group-lg">
       <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
-      <input type="text" name="phoneNumber" class="form-control" placeholder="555-123-4567">
+      <input type="text" name="phoneNumber" class="form-control" placeholder="555-123-4567" value="<%= user.phoneNumber %>">
     </div>
     <div class="input-group input-group-lg clockpicker">
       <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-      <input name="time" type="text" class="form-control" value="8:00">
+      <input name="time" type="text" class="form-control" value="<%= user.time %>">
     </div>
     <input type="submit" class="btn btn-primary btn-lg" value="Update Settings">
 </form>

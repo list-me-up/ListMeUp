@@ -45,20 +45,17 @@ userSchema.methods.getWeather = function() {
     });
 }
 
-userSchema.methods.sendMessage = function() {
-    todo = this.list[0].text
-    todo1 = this.list[1].text
+userSchema.methods.sendMessage = function() {    
     this.getWeather()
     .then(weather => {
+        let textBody = `Hello, ${this.firstName} - the forecast is ${weather.forecast}`;
+        this.list.forEach(function (todo) {
+            textBody += `\n ☑️ ${todo.text}`;
+        });
         twilio.messages.create({
             to: this.phoneNumber,
             from: telephone,
-            body: 
-            `Hello, ${this.firstName} - the forecast is ${weather.forecast}
-Reminders:
-
-☑️${todo}
-☑️${todo1}`,
+            body: textBody,
             mediaUrl: `https://s3-us-west-1.amazonaws.com/listmeup/${weather.icon}.png`,
         }, function (err, message) {
             if (err) {
