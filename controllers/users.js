@@ -23,7 +23,6 @@ function update(req, res) {
 
     let phoneNumber = phoneUtil.parse(req.body.phoneNumber, 'US');
     req.user.phoneNumber = phoneUtil.format(phoneNumber, PNF.E164)
-  
     geocoder.geocode(req.body.city, function (err, data) {
         req.user.weatherLocation.lat = data.results[0].geometry.location.lat
         req.user.weatherLocation.lng = data.results[0].geometry.location.lng
