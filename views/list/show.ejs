@@ -1,6 +1,6 @@
 <%- include('./../_partials/header') %>
 
-<div class="container">
+<div class="container" id="container">
   <div class="row">
     <div class="panel panel-default">
         <br>
@@ -11,9 +11,7 @@
           <p class="col-xs-6">Item</p>
           <p class="col-xs-3">Active</p>
         </div>
-        <br>
-
-        <hr>
+        <br><hr>
         <div class="show-bod">
           <p class="col-xs-3" id="num-show">1</p>
           <p class="col-xs-6" id="text-show" <%- list.sos && 'style="color: red"'%>><%=list.text%></p>
@@ -23,9 +21,7 @@
             </form>
           </p> 
         </div>
-        <br>
-        <br>
-          
+        <br><br>   
     </div>
   </div>
 </div> 
@@ -38,6 +34,6 @@
     </div>
       <button class="btn" type="submit">Update</button> 
    </form>
-</div>
+<!-- </div> -->
 
 <%- include('./../_partials/footer') %>

@@ -1,53 +1,55 @@
 <%- include('./../_partials/header') %>
 
-<div id="map"></div>
-<form method="POST" action="/settings?_method=PUT">
-    <div class="input-group input-group-lg">
-      <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-      <input id="addressSearch" class="form-control" placeholder="Enter your city" name="city">
-    </div>
-    <div class="input-group input-group-lg">
-      <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
-      <input type="text" name="phoneNumber" class="form-control" placeholder="555-123-4567" value="<%= user.phoneNumber %>">
-    </div>
-    <div class="input-group input-group-lg clockpicker">
-      <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-      <input name="time" type="text" class="form-control" value="<%= user.time %>">
-    </div>
-    <input type="submit" class="btn btn-primary btn-lg" value="Update Settings">
-</form>
-<script>
-function initMap() {
-  
-  let map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat: 34.047900, lng: -118.240132 },
-      zoom: 10,
-  });
+<div class="container" id="container">
+  <div id="map"></div>
+  <form method="POST" action="/settings?_method=PUT">
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
+        <input id="addressSearch" class="form-control" placeholder="Enter your city" name="city">
+      </div>
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+        <input type="text" name="phoneNumber" class="form-control" placeholder="555-123-4567" value="<%= user.phoneNumber %>">
+      </div>
+      <div class="input-group input-group-lg clockpicker">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+        <input name="time" type="text" class="form-control" value="<%= user.time %>">
+      </div>
+      <input type="submit" class="btn btn-primary btn-lg" value="Update Settings">
+  </form>
+  <script>
+  function initMap() {
+    
+    let map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 34.047900, lng: -118.240132 },
+        zoom: 10,
+    });
 
-  const input = document.getElementById('addressSearch');
+    const input = document.getElementById('addressSearch');
 
-  const options = {
-    types: ['(cities)']
-  };
+    const options = {
+      types: ['(cities)']
+    };
 
-  const autocomplete = new google.maps.places.Autocomplete(input, options);
+    const autocomplete = new google.maps.places.Autocomplete(input, options);
 
-  let marker = new google.maps.Marker({
-    map: map,
-  });
+    let marker = new google.maps.Marker({
+      map: map,
+    });
 
-  autocomplete.addListener('place_changed', function () {
-    marker.setVisible(false);
-    var place = autocomplete.getPlace();
-    map.setZoom(14);
-    marker.setPosition(place.geometry.location);
-    var latLng = marker.getPosition();
-    map.setCenter(latLng)
-    marker.setVisible(true);
-  });
-}
+    autocomplete.addListener('place_changed', function () {
+      marker.setVisible(false);
+      var place = autocomplete.getPlace();
+      map.setZoom(14);
+      marker.setPosition(place.geometry.location);
+      var latLng = marker.getPosition();
+      map.setCenter(latLng)
+      marker.setVisible(true);
+    });
+  }
+  </script>
+<!-- </div> -->
 
-</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9IDQC2FqaO9bsE9NEr3Qon_buW8aVHKo&libraries=places&callback=initMap" async defer></script>
 <script src="/javascripts/bootstrap-clockpicker.min.js"></script>
 <script type="text/javascript">$('.clockpicker').clockpicker({donetext: 'Done', placement: 'top', align: 'left'});</script>
