@@ -1,3 +1,13 @@
+var Joke = require('./../models/joke');
+
+// exposing Joke API
+function getJokes(req, res) {
+    Joke.find({}, function(err, jokes) {
+        // res.send('HI!');
+        res.status(200).json(jokes);
+    });
+}
+
 function index(req, res) {
     res.json(req.user.list);
 }
@@ -27,6 +37,7 @@ function update(req, res) {
 }
 
 module.exports = {
+    getJokes,
     create,
     index,
     delete: deleteFact,

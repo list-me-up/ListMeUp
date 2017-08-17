@@ -7,7 +7,6 @@ console.log('APP IS LOADED');
 
 $.get('/api/list', function(data) {
     template = _.template($('#userTemplate').html());
-    // console.log(JSON.stringify(data));
     render(data);
 });
 
@@ -53,7 +52,6 @@ document.getElementById('help').addEventListener('click', function() {
     $('#dropdown').css({'color': 'red'});
     sos = true;
 });
-
 
 function editItem(event) {
     if (isEditing) return;
