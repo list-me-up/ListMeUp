@@ -17,40 +17,25 @@ function list(req, res) {
 }
 
 function update(req, res) {
-    console.log(req.body)
     let time = req.body.time
-    req.user.time = time.replace(/ /, '')
-    console.log(req.user.time)
+    req.user.time = time.replace(/ /, '');
 
-    let phoneNumber = phoneUtil.parse(req.body.phoneNumber, 'US');
-    req.user.phoneNumber = phoneUtil.format(phoneNumber, PNF.E164)
+    if (req.body.city && req.body.phoneNumber && req.body.time) {
+        let phoneNumber = phoneUtil.parse(req.body.phoneNumber, 'US');
+        req.user.phoneNumber = phoneUtil.format(phoneNumber, PNF.E164)
 
-    geocoder.geocode(req.body.city, function (err, data) {
-        req.user.city = req.body.city
-        req.user.weatherLocation.lat = data.results[0].geometry.location.lat
-        req.user.weatherLocation.lng = data.results[0].geometry.location.lng
-        
-        if (req.user.city && req.user.weatherLocation.lat && req.user.weatherLocation.lng && req.user.time && req.user.phoneNumber) {
+        geocoder.geocode(req.body.city, function (err, data) {
+            req.user.city = req.body.city
+            req.user.weatherLocation.lat = data.results[0].geometry.location.lat
+            req.user.weatherLocation.lng = data.results[0].geometry.location.lng
+            
             req.user.save(function(err) {
-            // console.log(err);
                 res.redirect('/list');
             }); 
-        } else {
-            res.render('users/settings');
-        }
-        // else {
-        //     res.render('users/settings');
-        // }
-        
-        // if (err) {
-        //     console.log('HI!!!!', err);
-        // }
-        // req.user.save(function(err) {
-        //     // console.log(err);
-        //     if (err) return res.redirect('/');
-        //     res.redirect('/list');
-        // });
-    });
+        });
+    } else {
+        res.render('users/settings', {user: req.user});
+    }
 }
 
 function settings(req, res) {
