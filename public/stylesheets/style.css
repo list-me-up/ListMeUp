@@ -24,6 +24,10 @@ ul, li {
   color: #eee9e9 !important;
 }
 
+.jumbotron {
+  background-color: #EEE9E9;
+}
+
 .navbar-brand {
   margin-top: 14px;
   font-weight: 600;

@@ -6,10 +6,12 @@ schedule.scheduleJob('0 * * * * *', function () {
   let hour = date.getHours()
   let minute = date.getMinutes()
   let currentTime = `${hour}${minute}`
+  console.log(currentTime)
 
   User.find({time: currentTime},
     function (error, users) {
       users.forEach(function (user) {
+        console.log(user)
         user.sendMessage()
       })
     })
