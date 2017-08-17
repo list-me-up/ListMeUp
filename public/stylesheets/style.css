@@ -87,6 +87,10 @@ a:hover {
   color: #8b8378;
 }
 
+#nav-login {
+  margin-bottom: 16px;
+}
+
 #delete-item {
   margin-top: -12px;
 }
