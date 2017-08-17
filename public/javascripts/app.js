@@ -63,12 +63,6 @@ function editItem(event) {
     $('#edit-input').focus();
 }
 
-function getWeather() {
-    return fetch('https://api.darksky.net/forecast/b43f78358ca0251b8838368a5f9c0279/${this.weatherLocation.lat},${this.weatherLocation.lng}', {
-        method: 'get'
-    }).then(data => data.json());
-}
-
 function doneEditing(event, itemId) {
     var $span = $(event.target.parentElement);
 
