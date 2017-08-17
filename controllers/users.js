@@ -28,10 +28,13 @@ function update(req, res) {
             req.user.city = req.body.city
             req.user.weatherLocation.lat = data.results[0].geometry.location.lat
             req.user.weatherLocation.lng = data.results[0].geometry.location.lng
-            
-            req.user.save(function(err) {
-                res.redirect('/list');
-            }); 
+
+            req.user.getCurrentWeather().then(weather => {
+                req.user.currentWeather = weather
+                req.user.save(function (err) {
+                    res.redirect('/list');
+                }); 
+            })
         });
     } else {
         res.render('users/settings', {user: req.user});

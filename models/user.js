@@ -25,6 +25,7 @@ var userSchema = new Schema({
     email: String,
     googleId: String,
     weatherLocation: {lat: Number, lng: Number},
+    currentWeather: Number,
     city: String,
     phoneNumber: String,
     time: String,
@@ -33,6 +34,17 @@ var userSchema = new Schema({
 }, {
     timestamps: true
 });
+
+userSchema.methods.getCurrentWeather = function() {
+    const url = `https://api.darksky.net/forecast/b43f78358ca0251b8838368a5f9c0279/${this.weatherLocation.lat},${this.weatherLocation.lng}`
+    return new Promise(function(resolve, reject) {
+        request(url, function (error, response, body) {
+            if (error) reject(error)
+            let weatherData = JSON.parse(body)
+            resolve(weatherData.currently.temperature)
+        });
+    })
+}
 
 userSchema.virtual('firstName').get(function() {
     return this.name.split(' ')[0]
