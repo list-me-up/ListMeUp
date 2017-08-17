@@ -13,7 +13,6 @@ function index(req, res) {
 }
 
 function list(req, res) {
-    var num = 0;
     res.render('list/to-do', {user: req.user});
 }
 

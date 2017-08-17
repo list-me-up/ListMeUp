@@ -67,6 +67,15 @@ a, .username {
   font-size: 20px;
 }
 
+p {
+  font-size: 20px;
+}
+
+#delete {
+  margin-right: 18px;
+  margin-top: 5px;
+}
+
 .username {
   padding: 3px 20px;
   font-weight: 500;
@@ -82,15 +91,13 @@ a:hover {
   color: #8b8378;
 }
 
-#num-show {
-  padding-top: 18px;
-  padding-left: 38px;
+#nav-login {
+  margin-bottom: 16px;
 }
 
-#text-show {
-  padding-top: 18px;
-  font-size: 20px;
-} 
+#delete-item {
+  margin-top: -12px;
+}
 
 .navbar {
   background-color: #eee9e9;
