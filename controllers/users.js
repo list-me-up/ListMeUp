@@ -19,7 +19,8 @@ function list(req, res) {
 function update(req, res) {
     console.log(req.body)
     let time = req.body.time
-    req.user.time = time.replace(/:/, '')
+    req.user.time = time.replace(/ /, '')
+    console.log(req.user.time)
 
     let phoneNumber = phoneUtil.parse(req.body.phoneNumber, 'US');
     req.user.phoneNumber = phoneUtil.format(phoneNumber, PNF.E164)

@@ -2,13 +2,11 @@ const User = require('../models/user');
 const schedule = require('node-schedule');
 
 schedule.scheduleJob('0 * * * * *', function () {
-  let date = new Date()
-  let hour = date.getHours()
-  let minute = date.getMinutes()
-  let currentTime = `${hour}${minute}`
-  console.log(currentTime)
-
-  User.find({time: currentTime},
+  let currentTime = new Date()
+  currentTime = currentTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+  let formattedTime = currentTime.replace(/ /, '')
+  
+  User.find({time: formattedTime},
     function (error, users) {
       users.forEach(function (user) {
         console.log(user)
