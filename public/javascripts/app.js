@@ -54,24 +54,34 @@ document.getElementById('help').addEventListener('click', function() {
     sos = true;
 });
 
+var holdValue = '';
 function editItem(event) {
     if (isEditing) return;
     isEditing = true;
-    var $p = $(event.target);
-    $p.html(`<input id="edit-input" value="${$p.html()}">`);
+    var $span = $(event.target);
+    $span.html(`<input id="edit-input" value="${$span.html()}">`);
+    holdValue = $('#edit-input').val();
+    console.log(holdValue);
     $('#edit-input').focus();
 }
 
 function doneEditing(event, itemId) {
-    var $p = $(event.target.parentElement);
-    $p.html(event.target.value);
+    var $span = $(event.target.parentElement);
+
+    if (event.target.value === '') {
+        event.target.value = holdValue;
+        $span.html(event.target.value);
+    } else {
+        $span.html(event.target.value);
+    }
+
     isEditing = false;
-    let currentId = $p.attr('data-itemId');
+    let currentId = $span.attr('data-itemId');
     fetch('/api/users/list/' + currentId, {
         method: 'PUT',
         headers: {'Content-type': 'application/json'},
         credentials: 'include',
-        body: JSON.stringify({list: $p.html()})
+        body: JSON.stringify({list: $span.html()})
     });
 }
 
