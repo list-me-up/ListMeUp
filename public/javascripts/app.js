@@ -1,7 +1,7 @@
 var template;
 var sos = false;
 var isEditing = false;
-var num = 1;
+var holdValue = '';
 
 console.log('APP IS LOADED');
 
@@ -54,7 +54,7 @@ document.getElementById('help').addEventListener('click', function() {
     sos = true;
 });
 
-var holdValue = '';
+
 function editItem(event) {
     if (isEditing) return;
     isEditing = true;
