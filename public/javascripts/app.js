@@ -94,6 +94,17 @@ $('#all-list').on('keypress blur', '#edit-input', function(event) {
     }
 });
 
+document.getElementById('item').addEventListener('click', function() {
+    $("#item").on('keypress blur', function(event) { 
+        holdValue = $('#item').val();
+        if (holdValue) {
+            if (event.keyCode === 13) {
+                addToDo();
+            }
+        }
+    });
+});
+
 $('.dropdown-item').on('click', function(event) {
     event.preventDefault();
 });
