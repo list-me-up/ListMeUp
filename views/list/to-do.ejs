@@ -7,11 +7,13 @@
       <h3>Your List</h3>
 
       <hr>
-      <p class="col-xs-3" id="list-count"> ⛅️ </p>
-      <p class="col-xs-6"><%= user.city %></p> 
-      <p class="col-xs-3"><%= user.currentWeather %>°</p>
-      <br>
-
+      <div class="weather">
+        <p class="col-xs-3" id="list-count"> ⛅️ </p>
+        <p class="col-xs-6"><%= user.city %></p> 
+        <p class="col-xs-3"><%= user.currentWeather %>°</p>
+        <br>
+      </div>
+      
       <div id="all-list"></div>
 
       <script type="text/template" id="userTemplate">

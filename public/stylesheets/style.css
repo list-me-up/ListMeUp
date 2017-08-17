@@ -7,7 +7,6 @@ body {
   margin: 0 auto;
   color: #8b8378;
   margin-bottom: 120px;
-  /* min-height: 300px; */
 }
 
 ul, li {
@@ -22,6 +21,10 @@ ul, li {
 
 #help:hover {
   color: #bc8f8f !important;
+}
+
+.weather {
+  padding-bottom: 18px;
 }
 
 .jumbotron {
@@ -121,7 +124,6 @@ a:hover {
 
 .container {
   text-align: center;
-  /* padding-top: 50px; */
 }
 
 #container {
@@ -181,7 +183,6 @@ a:hover {
   padding-top: 18px !important;
 }
 
-/* Customize container */
 @media (min-width: 768px) {
   .container {
     max-width: 730px;

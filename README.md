@@ -3,7 +3,6 @@
 ## Introduction
 Who remembers to check todo lists? With List Me Up, you can get daily SMS reminders with information that's most important to you. As a user, you decide when you'd like to get notified. You will also receive daily forcasts at your location so you'll never dress for the wrong weather again! 
 
-
 <img src="http://i.imgur.com/RkJveOo.png" width="400">
 
 ### Technologies Used
@@ -39,7 +38,6 @@ Who remembers to check todo lists? With List Me Up, you can get daily SMS remind
 
 ### App's RESTful API
 <img src="http://i.imgur.com/YIMYiDb.png" width="400">
-
 
 ### Unresolved problems
 * None.

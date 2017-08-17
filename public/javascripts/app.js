@@ -3,8 +3,6 @@ var sos = false;
 var isEditing = false;
 var holdValue = '';
 
-console.log('APP IS LOADED');
-
 $.get('/api/list', function(data) {
     template = _.template($('#userTemplate').html());
     render(data);
@@ -59,7 +57,6 @@ function editItem(event) {
     var $span = $(event.target);
     $span.html(`<input id="edit-input" value="${$span.html()}">`);
     holdValue = $('#edit-input').val();
-    console.log(holdValue);
     $('#edit-input').focus();
 }
 
