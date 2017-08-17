@@ -5,14 +5,6 @@
     <div class="panel panel-default">
       <br>
       <h3>Your List</h3>
-      <hr>
-
-      <div class="header">
-        <p class="col-xs-3">#</p>
-        <p class="col-xs-6">Item</p>
-        <p class="col-xs-3">Active</p> 
-      </div>
-      <br>
 
       <div id="all-list"></div>
 
@@ -20,11 +12,17 @@
         <%% if (list) { %%>
           <%% list.forEach(item => { %%>
             <hr>
-            <p class="col-xs-3">1</p>
+            <p class="col-xs-3" id="list-count">
+              <%% if (item.sos) { %>
+                  🆘
+              <%% } else { %>
+                  ☑️
+              <%% } %>
+            </p>
             <p class="col-xs-6"><span id="edit-inline" data-itemId="<%%= item._id %>" <%%= item.sos && 'style="color: red"'%>><%%= item.text %></span></p> 
             <p class="col-xs-3">
               <form action="/list/<%%= item._id %>?_method=DELETE" method="POST">
-                  <button type="submit" data-itemId="<%%= item._id %>" class="btn">X</button>
+                  <button type="submit" id="delete-item" data-itemId="<%%= item._id %>" class="btn">X</button>
               </form>
             </p>
           <%% }) %%>

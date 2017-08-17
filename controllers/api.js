@@ -6,7 +6,6 @@ function create(req, res) {
     req.user.list.push(req.body);
     req.user.save(function(err) {
         res.json(req.user);
-        console.log(req.user);
     });
 }
 

@@ -87,15 +87,9 @@ a:hover {
   color: #8b8378;
 }
 
-#num-show {
-  padding-top: 18px;
-  padding-left: 38px;
+#delete-item {
+  margin-top: -12px;
 }
-
-#text-show {
-  padding-top: 18px;
-  font-size: 20px;
-} 
 
 .navbar {
   background-color: #eee9e9;

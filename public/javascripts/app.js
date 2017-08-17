@@ -1,6 +1,7 @@
 var template;
 var sos = false;
 var isEditing = false;
+var num = 1;
 
 console.log('APP IS LOADED');
 
@@ -11,7 +12,7 @@ $.get('/api/list', function(data) {
 });
 
 function render(listItems) {
-    $('#all-list').html(template({list: listItems}))
+    $('#all-list').html(template({list: listItems}));
 }
 
 function addToDo() {
