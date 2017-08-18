@@ -17,8 +17,13 @@ function list(req, res) {
 }
 
 function update(req, res) {
-    let time = req.body.time
+    // Remove leading 0
+    let time = req.body.time.replace(/^0/, '')
+    
+    // Remove any spaces
     req.user.time = time.replace(/ /, '');
+
+    console.log(req.user.time)
 
     if (req.body.city && req.body.phoneNumber && req.body.time) {
         let phoneNumber = phoneUtil.parse(req.body.phoneNumber, 'US');

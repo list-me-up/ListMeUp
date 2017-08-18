@@ -11,8 +11,9 @@ schedule.scheduleJob('00 * * * *', function () {
 
 schedule.scheduleJob('0 * * * * *', function () {
   let currentTime = new Date()
-  currentTime =  `0${currentTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}`
+  currentTime =  currentTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
   let formattedTime = currentTime.replace(/ /, '')
+  // Time: '9:25AM'
   User.find({time: formattedTime},
     function (error, users) {
       users.forEach(function (user) {
