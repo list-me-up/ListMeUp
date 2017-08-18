@@ -45,3 +45,4 @@ Who remembers to check todo lists? With List Me Up, you can get daily SMS remind
 ### Future enhancements
 * Add capability to check weather for multiple locations.
 * Add capability to set individual times for todo list reminders.
+* Turn off notifications.
